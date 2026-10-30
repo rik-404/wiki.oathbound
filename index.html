@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111017">
+  <meta name="description" content="Wiki de Oathbound: guias, personagens, criaturas, mapas e segredos do jogo.">
+  <title>Wiki Oathbound</title>
+  <link rel="icon" href="assets/heroes/mago.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wiki.css?v=1">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#inicio" aria-label="Wiki Oathbound, início">
+        <img src="assets/title.png" alt="Oathbound">
+        <span><b>WIKI</b><small>GUIA DO MUNDO</small></span>
+      </a>
+      <label class="side-search"><span>⌕</span><input id="side-search" type="search" placeholder="Buscar na Wiki…" autocomplete="off"><kbd>/</kbd></label>
+      <nav class="side-nav" id="side-nav" aria-label="Navegação da Wiki"></nav>
+      <div class="side-bottom"><span class="status-dot"></span><span>GUIA DE OATHBOUND</span><small id="build-status">CONTEÚDO LOCAL</small></div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobile-menu" type="button" aria-label="Abrir navegação">☰</button>
+        <div class="breadcrumbs" id="breadcrumbs"><span>WIKI</span><b>/</b><strong>INÍCIO</strong></div>
+        <div class="top-actions">
+          <button class="icon-button" id="theme-toggle" type="button" title="Alternar contraste" aria-label="Alternar contraste">◐</button>
+          <button class="sign-in" id="auth-button" type="button">Entrar como Dev</button>
+          <button class="avatar-button" id="user-button" type="button" hidden aria-label="Conta de administrador"><span id="user-avatar">D</span></button>
+        </div>
+      </header>
+      <div class="page-scroll" id="page-scroll">
+        <div class="content-wrap">
+          <section class="welcome-banner" id="welcome-banner">
+            <div class="banner-copy"><span class="eyebrow"><i></i> ENCICLOPÉDIA DO JOGO</span><h1>Conheça o mundo<br><em>de Oathbound.</em></h1><p>Heróis, criaturas, mapas e estratégias reunidos em um só lugar.</p><label class="hero-search"><span>⌕</span><input id="hero-search" type="search" placeholder="O que você quer descobrir?" autocomplete="off"><kbd>Ctrl K</kbd></label></div>
+            <div class="banner-art" aria-hidden="true"><div class="rune rune-one">✦</div><div class="rune rune-two">ᛟ</div><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><img src="assets/heroes/mago.png" alt=""></div>
+            <div class="banner-footer"><span>EDIÇÃO DA EQUIPE</span><span id="page-count">ARTIGOS · —</span></div>
+          </section>
+          <section class="search-results" id="search-results" hidden></section>
+          <section class="article-view" id="article-view" aria-live="polite"></section>
+          <section class="editor-section" id="editor-section" hidden>
+            <div class="editor-heading"><div><span class="eyebrow">QUARTEL-GENERAL</span><h2>Editar artigo</h2></div><button class="icon-button" id="editor-close" type="button" aria-label="Fechar editor">×</button></div>
+            <form id="article-form">
+              <input id="article-id" type="hidden">
+              <div class="form-pair"><label>Título<input id="article-title" required maxlength="100" placeholder="Nome do artigo"></label><label>Identificador<input id="article-slug" required pattern="[a-z0-9-]+" maxlength="80" placeholder="nome-do-artigo"></label></div>
+              <div class="form-pair"><label>Categoria<select id="article-category" required></select></label><label>Imagem de capa<input id="article-cover" maxlength="240" placeholder="assets/heroes/mago.png"></label></div>
+              <label>Resumo<input id="article-excerpt" maxlength="200" placeholder="Uma frase para apresentar o artigo"></label>
+              <label>Conteúdo <small>Markdown: títulos com #, listas com -, negrito com **texto** e links como [texto](https://...)</small><textarea id="article-content" required rows="16" placeholder="# Título do artigo&#10;&#10;Escreva o conteúdo aqui…"></textarea></label>
+              <label class="publish-toggle"><input id="article-published" type="checkbox" checked><span><b>Publicado</b><small>Artigo visível para quem visitar a Wiki</small></span></label>
+              <div class="editor-actions"><button class="delete-button" id="article-delete" type="button" hidden>Excluir artigo</button><span class="editor-status" id="editor-status" role="status"></span><button class="save-button" type="submit">Salvar artigo</button></div>
+            </form>
+          </section>
+          <footer class="site-footer"><span>OATHBOUND WIKI</span><span>FEITA PARA EXPLORAR O MUNDO</span><a href="https://jogue-oathbound.online" target="_blank" rel="noopener">VOLTAR AO JOGO ↗</a></footer>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.0/dist/umd/supabase.js"></script>
+  <script src="wiki.js?v=1"></script>
+</body>
+</html>
